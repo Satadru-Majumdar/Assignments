@@ -3,13 +3,11 @@ class ExportPreset:
         self.name = name
         self.fmt = fmt
         self.comp = compression
-
 presets = {
     "insta": ExportPreset("IG Carousel", "JPEG", 0.15),
     "print": ExportPreset("High-Res Print", "TIFF", 0.95),
     "web": ExportPreset("Kompany Website", "WebP", 0.05)
 }
-
 def run_export_batch(target, files):
     if target not in presets:
         print("error: invalid preset selected.")
@@ -19,14 +17,12 @@ def run_export_batch(target, files):
     print(f"--- Starting {active_preset.name} Batch ({active_preset.fmt}) ---")
     
     total_mb = 0
-    
     for f in files:
         final_size = f["size"] * active_preset.comp
         total_mb += final_size
         print(f"saving {f['name']} -> {final_size:.2f}MB")
         
     print(f"\nDone. Total space taken: {total_mb:.2f}MB")
-
 test_batch = [
     {"name": "A1_85mm_1.4_001.ARW", "size": 52.4},
     {"name": "A1_85mm_1.4_002.ARW", "size": 51.8},
