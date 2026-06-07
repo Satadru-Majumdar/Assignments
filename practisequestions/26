@@ -1,0 +1,21 @@
+a = []
+b = int(input("Enter number of elements in array:- "))
+d = 1
+
+print("Enter " + str(b) + " elements:- ")
+for i in range(b):
+    c = int(input(""))
+    a.append(c)
+
+for j in a:
+    d = d * j
+print(d)
+if d == 0:
+    print(-1)
+else:
+    e = str(d)
+    f = len(e)
+    for i in range(f - 1, -1, -1):
+        if e[i] != '0':
+            print(e[i])
+            break
